@@ -1,6 +1,7 @@
 import './globals.css'
 import Navbar from './components/Navbar'
 import MyProfilePic from './components/MyProfilePic'
+import BG from "./images/download.jpg"
 
 export const metadata = {
   title: "AJDev Blog",
@@ -14,9 +15,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='dark:bg-slate-800'>
-        <Navbar />
-        <MyProfilePic />
+      <body className='max-w-[1050px] h-[100vh] mx-auto bg-gradient-to-t from-gray-500 bg-fixed'>
+        {/* <Navbar /> */}
         {children}
       </body>
     </html>

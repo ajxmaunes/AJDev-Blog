@@ -3,6 +3,8 @@ import getFormattedDate from "@/lib/getFormattedDate"
 import { getPostData, getSortedPostsData } from "@/lib/posts"
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import { IoIosArrowBack } from 'react-icons/io';
+
 
 export function generateStaticParams() {
   const posts = getSortedPostsData() //depuped!
@@ -44,16 +46,14 @@ export default async function Post({ params }: {params: {postId: string}}) {
     const pubDate = getFormattedDate(date)
 
   return (
-      <main className="px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">
-        <h1 className="text-3xl mt-4 mb-0">{title}</h1>
-          <p className="mt-0">
+      <main className="p-6 prose prose-xl prose-slate text-black mx-auto">
+        <h1 className="text-3xl text-[#413F42] max-md:text-[25px] max-md:text-center mt-4 mb-2">{title}</h1>
+          <p className="mt-0 max-md:text-[18px] max-md:text-center">
             {pubDate}
           </p>
-          <article>
-            <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
-            <p>
-              <Link href="/">← Back to home</Link>
-            </p>
+          <article className="max-md:text-[16px] pb-[2rem]" >
+            <section dangerouslySetInnerHTML={{ __html: contentHtml }}/>
+            <Link href="/" className="flex items-center text-[20px] hover:text-blue-700 no-underline"><IoIosArrowBack className="mt-[2px]"/> Back</Link>
           </article>
       </main>
   )

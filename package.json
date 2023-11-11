@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.14.16",
+    "@mui/material": "^5.14.17",
     "@types/node": "20.8.10",
     "@types/react": "18.2.36",
     "@types/react-dom": "18.2.14",
@@ -19,8 +24,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0",
+    "react-router-dom": "^6.18.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
+    "styled-components": "^6.1.1",
     "typescript": "5.2.2"
   },
   "devDependencies": {
