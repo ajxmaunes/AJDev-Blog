@@ -47,13 +47,13 @@ export default async function Post({ params }: {params: {postId: string}}) {
 
   return (
       <main className="p-6 prose prose-xl prose-slate text-black mx-auto">
+        <Link href="/" className="flex items-center lg:w-[15%] max-md:text-[20px] text-[25px] lg:-ml-[8px] my-5 hover:text-blue-700 no-underline"><IoIosArrowBack className="mt-[3px]"/> Back</Link>
         <h1 className="text-3xl text-[#413F42] max-md:text-[25px] max-md:text-center mt-4 mb-2">{title}</h1>
           <p className="mt-0 max-md:text-[18px] max-md:text-center">
             {pubDate}
           </p>
           <article className="max-md:text-[16px] pb-[2rem]" >
             <section dangerouslySetInnerHTML={{ __html: contentHtml }}/>
-            <Link href="/" className="flex items-center text-[20px] hover:text-blue-700 no-underline"><IoIosArrowBack className="mt-[2px]"/> Back</Link>
           </article>
       </main>
   )

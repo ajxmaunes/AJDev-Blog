@@ -10,9 +10,9 @@ export default function ListItem({ post }: Props) {
     const { id, title, date } = post
     const formattedDate = getFormattedDate(date)
   return (
-      <div className="w-[30rem] h-auto items-center mx-auto bg-white rounded-lg shadow-xl max-md:w-[20rem] max-md:h-auto border-[0.1px] border-black">
+      <div className="w-[30rem] h-auto items-center mx-auto bg-white bg-opacity-40 hover:bg-opacity-80 hover:scale-105 transition ease-in-out duration-200 rounded-lg shadow-xl max-md:w-[20rem] max-md:h-auto">
     
-        <div className="px-8 pt-5 pb-8 ">
+        <div className="px-8 pt-5 pb-6 ">
           <a href={`/posts/${id}`}>
               <h5 className="mb-2 text-[20px] max-md:text-[18px] font-semibold tracking-tight text-gray-900 hover:text-blue-900">{title}</h5>
           </a>
