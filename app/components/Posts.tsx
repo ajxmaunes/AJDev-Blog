@@ -6,6 +6,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 
 export default function Posts() {
     const posts = getSortedPostsData()
+    
   return (
     <section className="text-center">
         <h2 className="text-4xl text-[#413F42] max-md:text-[1.8rem] font-bold pt-[3rem]">🔎AJDev Blog</h2>
