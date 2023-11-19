@@ -1,6 +1,5 @@
 import './globals.css'
 import Navbar from './components/Navbar'
-import MyProfilePic from './components/MyProfilePic'
 import BG from "./images/download.jpg"
 import { Metadata } from 'next'
 
