@@ -1,11 +1,15 @@
 
-import { getSortedPostsData } from "@/lib/posts"
+import { getPostsMeta } from "@/lib/posts"
 import ListItem from "./ListItem"
 import { IoIosArrowBack } from 'react-icons/io';
 
 
-export default function Posts() {
-    const posts = getSortedPostsData()
+export default async function Posts() {
+    const posts = await getPostsMeta()
+
+    if (!posts) {
+      return <p className="mt-10 text-center">Sorry, no posts available.</p>
+    }
     
   return (
     <section className="text-center">

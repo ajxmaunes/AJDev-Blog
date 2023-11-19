@@ -1,25 +1,32 @@
 
 import getFormattedDate from "@/lib/getFormattedDate"
-import { getPostData, getSortedPostsData } from "@/lib/posts"
+import { getPostsMeta, getPostByName } from "@/lib/posts"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { IoIosArrowBack } from 'react-icons/io';
+import 'highlight.js/styles/github-dark.css'
 
+export const revalidate = 0
 
-export function generateStaticParams() {
-  const posts = getSortedPostsData() //depuped!
-
-  return posts.map((post) => ({
-    postId: post.id
-  }))
+type Props = {
+  params: {
+    postId: string
+  }
 }
 
-export function generateMetadata({ params }: {params: {postId: string}}) {
+// export async function generateStaticParams() {
+//   const posts = await getPostsMeta() //depuped!
 
-    const posts = getSortedPostsData() //depuped!
-    const { postId } = params
+//   if (!posts) return []
 
-    const post = posts.find(post => post.id === postId)
+//   return posts.map((post) => ({
+//     postId: post.id
+//   }))
+// }
+
+export async function generateMetadata({ params: { postId }}: Props) {
+
+    const post = await getPostByName(`${postId}.mdx`) //depuped!
 
     if (!post) {
         return {
@@ -28,33 +35,42 @@ export function generateMetadata({ params }: {params: {postId: string}}) {
     }
 
     return {
-        title: post.title,
+        title: post.meta.title,
     }
 }
 
-export default async function Post({ params }: {params: {postId: string}}) {
+export default async function Post({ params: { postId }}: Props) {
 
-    const posts = getSortedPostsData() //depuped!
-    const { postId } = params
+    const post = await getPostByName(`${postId}.mdx`) //depuped!
 
-    if (!posts.find(post => post.id === postId)) {
-        return notFound()
-    }
+    if (!post) notFound()
 
-    const { title, date, contentHtml } = await getPostData(postId)
+    const { meta, content } = post
 
-    const pubDate = getFormattedDate(date)
+    const pubDate = getFormattedDate(meta.date)
+
+    const tags = meta.tags.map((tag, i) => (
+      <Link key={i} href={`/tags/${tag}`}>{tag}</Link>
+    ))
 
   return (
-      <main className="p-6 prose prose-xl prose-slate text-black mx-auto">
-        <Link href="/" className="flex items-center lg:w-[15%] max-md:text-[20px] text-[25px] lg:-ml-[8px] my-5 hover:text-blue-700 no-underline"><IoIosArrowBack className="mt-[3px]"/> Back</Link>
-        <h1 className="text-3xl text-[#413F42] max-md:text-[25px] max-md:text-center mt-4 mb-2">{title}</h1>
-          <p className="mt-0 max-md:text-[18px] max-md:text-center">
+    <main className="px-4 md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">
+          <h2 className="text-3xl mt-4 mb-0">{meta.title}</h2>
+          <p className="mt-0 text-sm">
             {pubDate}
           </p>
-          <article className="max-md:text-[16px] pb-[2rem]" >
-            <section dangerouslySetInnerHTML={{ __html: contentHtml }}/>
+          <article>
+            {content}
           </article>
+          <section>
+            <h3>Related:</h3>
+            <div className="flex flex-row gap-4">
+            {tags}
+            </div>
+          </section>
+          <p className="mb-10">
+            <Link href="/">← Back to home</Link>
+          </p>
       </main>
   )
 }

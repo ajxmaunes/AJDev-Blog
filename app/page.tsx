@@ -5,8 +5,8 @@ export const revalidate = 10
 
 export default function Home() {
   return (
-    <main className="lg:px-8">
+    <div className="lg:px-8">
         <Posts />
-    </main>
+    </div>
   )
 }
