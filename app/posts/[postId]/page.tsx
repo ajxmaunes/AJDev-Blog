@@ -6,7 +6,7 @@ import Link from "next/link"
 import { IoIosArrowBack } from 'react-icons/io';
 import 'highlight.js/styles/github-dark.css'
 
-export const revalidate = 86400
+export const revalidate = 0
 
 type Props = {
   params: {
@@ -54,22 +54,22 @@ export default async function Post({ params: { postId }}: Props) {
     ))
 
   return (
-    <main className="px-4 md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">
-          <h2 className="text-3xl mt-4 mb-0">{meta.title}</h2>
+    <main className="p-4 md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">
+          <h2 className="text-3xl max-md:text-[25px] mt-4 mb-0">{meta.title}</h2>
           <p className="mt-0 text-sm">
             {pubDate}
           </p>
-          <article>
+          <article className=" max-md:text-[16px]">
             {content}
           </article>
           <section>
-            <h3>Related:</h3>
-            <div className="flex flex-row gap-4">
+            <h3 className=" max-md:text-[22px]">Related:</h3>
+            <div className="flex flex-row gap-4 max-md:text-[18px]">
             {tags}
             </div>
           </section>
           <p className="mb-10">
-            <Link href="/">← Back to home</Link>
+            <Link href="/" className="no-underline hover:text-blue-800 max-md:text-[20px]">← Back to home</Link>
           </p>
       </main>
   )

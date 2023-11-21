@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='max-w-[1050px] h-[100vh] mx-auto bg-gradient-to-t from-gray-500 bg-fixed'>
+      <body className='max-w-[1150px] h-[100vh] mx-auto bg-gradient-to-t from-gray-500 bg-fixed'>
         {/* <Navbar /> */}
           {children}
       </body>

@@ -7,16 +7,21 @@ type Props = {
 }
 
 export default function ListItem({ post }: Props) {
-    const { id, title, date } = post
+    const { id, title, date, desc, img } = post
     const formattedDate = getFormattedDate(date)
   return (
-      <div className="w-[30rem] h-auto items-center mx-auto bg-white bg-opacity-40 hover:bg-opacity-80 hover:scale-105 transition ease-in-out duration-200 rounded-lg shadow-xl max-md:w-[20rem] max-md:h-auto">
+      <div className="w-[21rem] h-auto items-center mx-auto bg-white bg-opacity-60 hover:bg-opacity-80 hover:scale-105 transition ease-in-out duration-200 rounded-lg shadow-xl max-lg:w-[22rem] max-md:w-[20rem] max-md:h-auto">
+
+      <a href="#">
+          <img className="rounded-t-lg h-[12rem] w-full object-cover" src={img} alt="" />
+      </a>
     
-        <div className="px-8 pt-5 pb-6 ">
+        <div className="p-6">
           <a href={`/posts/${id}`}>
               <h5 className="mb-2 text-[20px] max-md:text-[18px] font-semibold tracking-tight text-gray-900 hover:text-blue-900">{title}</h5>
           </a>
-          <p className="mb-5 text-[14px] max-md:text-[12px] font-normal text-gray-700 dark:text-gray-400">{formattedDate}</p>
+          <p className="mb-2 text-[14px] max-md:text-[12px] font-normal text-gray-700 dark:text-gray-400">{formattedDate}</p>
+          <p className=" mb-5 text-[14px] max-md:text-[12px] font-normal text-gray-700 dark:text-gray-400">{desc}</p>
           <a href={`/posts/${id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#205295] rounded-lg hover:bg-blue-800 focus:outline-none dark:hover:bg-blue-700">
               Read more
               <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
