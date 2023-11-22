@@ -2,6 +2,7 @@
 import { getPostsMeta } from "@/lib/posts"
 import ListItem from "./ListItem"
 import { IoIosArrowBack } from 'react-icons/io';
+import Profile from "./Profile";
 
 
 export default async function Posts() {
@@ -13,18 +14,15 @@ export default async function Posts() {
     
   return (
     <section className="">
-      <div className="text-center">
-        <h2 className="text-4xl text-[#413F42] max-md:text-[1.8rem] font-bold pt-[2rem]">🔎AJDev Blog</h2>
-        <div className="pb-[1rem] mt-4 justify-center flex">
-          <a href="https://aljunemaunes.info/" className="flex items-center text-[20px] max-md:text-[18px] hover:text-blue-700"><IoIosArrowBack className="mt-[2px]"/> 
-            Back Home
-          </a>
-        </div>
-        <p className="pb-8 text-[16px] max-md:text-[14px] mx-6 text-gray-500">Note: Everything here are sample only and No copyright infringement intended. Original content will comming SOON!.</p>
+      <div className="my-8 justify-center flex">
+        <Profile />
       </div>
 
+      <h1 className=" pl-10 max-md:text-center max-md:pl-0 text-[1.6rem] max-md:text-[1.5rem] font-bold text-gray-700">RECENT POSTS</h1>
+      <p className="pb-3 pl-4 max-md:pl-0 text-[15px] max-md:text-[12px] mx-6 text-gray-500 max-md:text-center">Note: Every article here are sample only and No copyright infringement intended. Original content will posted soon.</p>
+      
       <div>
-        <ul className=" columns-3 max-lg:columns-2 max-md:columns-1 space-y-8 pb-[4rem] md:px-8">
+        <ul className=" justify-between columns-3 max-lg:columns-2 max-md:columns-1 space-y-8 pb-[4rem] md:px-8">
               {posts.map(post => (
                   <ListItem key={post.id} post={post} />
               ))}

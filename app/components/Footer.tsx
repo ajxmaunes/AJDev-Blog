@@ -1,17 +1,16 @@
-
 import Link from "next/link"
 import { FaFacebook, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import { TbWorldWww } from "react-icons/tb";
 
-export default function Navbar() {
+
+export default function Footer() {
     const iconStyle = "text-[1.4rem] max-md:text-[1.3rem] text-[#205295] hover:text-[#413F42]"
-  return ( 
-    <nav className="bg-white p-[22px] max-md:py-[8px] sticky top-0 z-10 shadow-md ">
-        <div className="max-w-[1160px] px-10 max-md:px-0 text-[#413F42] mx-auto flex justify-between flex-row items-center">
-            <h1 className="text-3xl font-bold text-white grid place-content-center mb-2 md:mb-0 ">
-                <Link href="https://ajdev-blog.vercel.app/" className="no-underline text-[25px] max-md:text-[26px] font-bold text-gray-800"><span className=" max-md:hidden">🔎</span>AJDev Blog</Link>
-            </h1>
-            <div className="flex flex-row justify-center sm:justify-evenly items-center gap-8 max-md:gap-5 text-white text-4xl lg:text-5xl">
+  return (
+    <div className=" w-full py-[2rem] flex justify-center bg-[#BDBDBD]">
+        <div className=" w-full max-w-[1160px] flex flex-col gap-[14px] items-center p-[1rem] text-[#413F42]">
+            <h1 className=" font-bold text-[22px] font-sans text-gray-900 ">Aljune Maunes</h1>
+
+            <div className=" mt-5 flex flex-row justify-center sm:justify-evenly items-center gap-8 text-white text-4xl lg:text-5xl">
                     <Link className="text-[1.5rem] max-md:text-[1.3rem] text-[#205295] hover:text-[#413F42]" href="https://aljunemaunes.info/">
                         <TbWorldWww />
                     </Link>
@@ -25,7 +24,12 @@ export default function Navbar() {
                         <FaInstagram />
                     </Link>
             </div>
+
+            <p className=" mt-5 text-[14px]">
+                &copy; 2023 Aljune Maunes. All rights reserved.
+            </p>
+
         </div>
-    </nav>
+    </div>
   )
 }

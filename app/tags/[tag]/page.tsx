@@ -1,6 +1,7 @@
 import { getPostsMeta } from "@/lib/posts"
 import ListItem from "@/app/components/ListItem"
 import Link from "next/link"
+import ListItemTags from "./ListItemTags"
 
 export const revalidate = 0
 
@@ -45,11 +46,11 @@ export default async function TagPostList({ params: { tag } }: Props) {
 
     return (
         <>
-            <h2 className="text-3xl mt-4 mb-0">Results for: #{tag}</h2>
-            <section className="mt-6 mx-auto max-w-2xl">
-                <ul className="w-full list-none p-0">
+            <h2 className="text-3xl max-md:text-2xl mt-6 mb-0 pl-12 max-md:pl-0 max-md:text-center">Results for: <span className=" font-bold">#{tag}</span></h2>
+            <section className="mt-6">
+                <ul className=" columns-3 max-lg:columns-2 max-md:columns-1 space-y-8 pb-[4rem] md:px-8 mx-4">
                     {tagPosts.map(post => (
-                        <ListItem key={post.id} post={post} />
+                        <ListItemTags key={post.id} post={post} />
                     ))}
                 </ul>
             </section>

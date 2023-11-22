@@ -2,6 +2,7 @@ import './globals.css'
 import Navbar from './components/Navbar'
 import BG from "./images/download.jpg"
 import { Metadata } from 'next'
+import Footer from './components/Footer'
 
 export const metadata: Metadata = {
   title: "AJDev Blog",
@@ -15,9 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='max-w-[1150px] h-[100vh] mx-auto bg-gradient-to-t from-gray-500 bg-fixed'>
-        {/* <Navbar /> */}
+      <body>
+        <Navbar />
+        <div className='max-w-[1150px] mx-auto justify-center'>
           {children}
+        </div>
+        <Footer />
       </body>
     </html>
   )

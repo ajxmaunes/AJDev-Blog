@@ -6,10 +6,11 @@ type Props = {
     post: Meta
 }
 
-export default function ListItem({ post }: Props) {
+export default function ListItemTags({ post }: Props) {
     const { id, title, date, desc, img } = post
     const formattedDate = getFormattedDate(date)
   return (
+    <div className=" inline-block">
       <div className="w-[21rem] h-auto items-center mx-auto bg-white bg-opacity-60 hover:bg-opacity-80 hover:scale-105 transition ease-in-out duration-200 rounded-lg max-lg:w-[22rem] max-md:w-[21rem] max-md:h-auto shadow-md  border-[0.1px] border-gray-600">
 
           <img className="rounded-t-lg h-[12rem] w-full object-cover" src={img} alt="" />
@@ -27,6 +28,7 @@ export default function ListItem({ post }: Props) {
               </svg>
           </a>
         </div>
+      </div>
       </div>
   )
 }
