@@ -14,7 +14,7 @@ export default async function Posts() {
     
   return (
     <section className="">
-      <div className="my-8 justify-center flex">
+      <div className="my-8 max-md:mt-0 justify-center flex">
         <Profile />
       </div>
 
