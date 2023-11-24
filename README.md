@@ -14,6 +14,6 @@
 <h3 align='center'>Home Page 🏡</h3>
 
 <div align='center'>
-<img src='https://raw.githubusercontent.com/ajxmaunes/Storage/main/ajdevblog.PNG'/>
+<img src='https://raw.githubusercontent.com/ajxmaunes/Storage/main/ajdevblog.png'/>
 
 </div>
