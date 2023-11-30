@@ -1,5 +1,6 @@
 
 import Posts from "./components/Posts"
+import { useState } from 'react'
 
 export const revalidate = 0
 
